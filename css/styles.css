@@ -1,0 +1,498 @@
+/* Box model fix */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+/* Color palette */
+:root {
+    --navy: #142B3B;
+    --teal: #2D7775;
+    --mist: #EAF1F2;
+    --sand: #F5F1E8;
+    --paper: #FFFFFF;
+    --ink: #24313A;
+    --muted: #5A6A73;
+    --line: #D7E0E2;
+    --accent: #D9A441;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+a {
+    color: var(--teal);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+a:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+}
+
+h1,
+h2,
+h3,
+p {
+    overflow-wrap: anywhere;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -4rem;
+    left: 1rem;
+    z-index: 5;
+    padding: 0.7rem 1rem;
+    background: var(--paper);
+    color: var(--navy);
+}
+
+.skip-link:focus {
+    top: 1rem;
+}
+
+/* Sticky navigation */
+.site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--navy);
+    box-shadow: 0 3px 10px rgba(20, 43, 59, 0.18);
+}
+
+.site-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem 0.55rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.55rem 1rem;
+}
+
+.site-nav a {
+    display: inline-block;
+    padding: 0.55rem 0.65rem;
+    border-radius: 0.3rem;
+    color: var(--paper);
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--paper);
+}
+
+.site-nav .nav-resume {
+    background: var(--paper);
+    color: var(--navy);
+}
+
+.site-nav .nav-resume:hover,
+.site-nav .nav-resume:focus-visible {
+    background: var(--sand);
+    color: var(--navy);
+}
+
+.resume-section,
+.site-footer,
+.site-header {
+    scroll-margin-top: 6rem;
+}
+
+/* Content wrapper */
+.content-wrap {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 50px;
+    overflow: hidden;
+}
+
+/* Header and footer */
+.site-header {
+    background: var(--navy);
+    color: var(--paper);
+}
+
+.site-footer {
+    background: var(--navy);
+    color: var(--paper);
+    text-align: center;
+}
+
+.eyebrow {
+    margin: 0 0 0.65rem;
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.site-header h1,
+.site-header h2,
+.resume-section h2,
+.site-footer h2 {
+    font-family: "Merriweather", serif;
+}
+
+.site-header h1,
+.site-header h2 {
+    margin: 0;
+}
+
+.site-header h1 {
+    font-size: clamp(2.5rem, 7vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.045em;
+    line-height: 1.2;
+}
+
+.site-header h2 {
+    margin-bottom: 0.9rem;
+    color: #B9DAD7;
+    font-size: clamp(1.15rem, 2.5vw, 1.55rem);
+    font-weight: 400;
+}
+
+.intro {
+    max-width: 680px;
+    margin: 1.25rem 0 1.75rem;
+    color: #E0E8EB;
+    font-size: 1.08rem;
+}
+
+/* Float columns */
+.column-narrow {
+    width: 30%;
+    float: left;
+    padding-right: 3%;
+    min-height: 175px;
+}
+
+.column-wide {
+    width: 70%;
+    float: left;
+    min-height: 225px;
+}
+
+.profile-img {
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.header-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.1rem 1.5rem;
+}
+
+.header-links a:not(.button) {
+    color: var(--paper);
+}
+
+.button {
+    display: inline-block;
+    padding: 0.78rem 1.1rem;
+    border-radius: 0.35rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.button-light {
+    background: var(--paper);
+    color: var(--navy);
+}
+
+.button-light:hover {
+    background: var(--sand);
+}
+
+/* Resume sections */
+.resume-section {
+    margin: 0;
+}
+
+.work-section {
+    background: var(--mist);
+}
+
+.education-section {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(245, 241, 232, 0.95) 0%,
+            rgba(245, 241, 232, 0.91) 58%,
+            rgba(245, 241, 232, 0.82) 100%
+        ),
+        url("../images/csun.png") center / contain no-repeat var(--sand);
+}
+
+.projects-section {
+    background: #F3F6F5;
+}
+
+.activities-section {
+    background: #F4F2EC;
+}
+
+.resume-section h2 {
+    margin-bottom: 1.6rem;
+    color: var(--navy);
+    font-size: clamp(1.65rem, 4vw, 2.15rem);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.section-eyebrow {
+    margin-bottom: 0.35rem;
+    color: var(--teal);
+}
+
+/* Resume entries */
+.resume-entry {
+    overflow: hidden;
+}
+
+.resume-entry + .resume-entry {
+    margin-top: 1.7rem;
+    padding-top: 1.45rem;
+    border-top: 1px solid var(--line);
+}
+
+.entry-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem 2rem;
+}
+
+.resume-entry h3 {
+    margin: 0;
+    color: var(--navy);
+    font-size: 1.14rem;
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+.entry-role {
+    margin: 0.15rem 0 0;
+    color: var(--teal);
+    font-weight: 600;
+}
+
+.entry-meta {
+    margin: 0.45rem 0 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+}
+
+.entry-heading .entry-meta {
+    margin-top: 0;
+    text-align: right;
+}
+
+.resume-entry p:not(.entry-role):not(.entry-meta) {
+    margin: 0.75rem 0 0;
+}
+
+.resume-entry ul {
+    margin: 0.8rem 0 0;
+    padding-left: 1.3rem;
+}
+
+.resume-entry li + li {
+    margin-top: 0.35rem;
+}
+
+.project-expansion {
+    font-size: 0.88em;
+    font-weight: 500;
+}
+
+/* Activity and skill cards */
+.activity-grid,
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.2rem;
+}
+
+.compact-entry {
+    padding: 1.25rem;
+    border: 1px solid var(--line);
+    border-radius: 0.55rem;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.compact-entry + .compact-entry {
+    margin-top: 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--line);
+}
+
+.skills-grid p {
+    margin: 0;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.skills-grid strong {
+    color: var(--navy);
+}
+
+/* Footer contact links */
+.site-footer h2 {
+    margin-bottom: 1.1rem;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+.contact-info a {
+    display: inline-block;
+    padding: 10px;
+    color: #D8E8E8;
+}
+
+.contact-info i {
+    margin-right: 0.2rem;
+    color: var(--accent);
+}
+
+.copyright {
+    margin: 2rem 0 0;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: #B9C8CE;
+    font-size: 0.88rem;
+}
+
+/* Skills background and scroll effect */
+.skills-section {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--navy);
+}
+
+.skills-section::before {
+    content: "";
+    position: absolute;
+    inset: -60px 0;
+    z-index: 0;
+    background:
+        linear-gradient(
+            120deg,
+            rgba(20, 43, 59, 0.78),
+            rgba(20, 43, 59, 0.45)
+        ),
+        url("../images/programming.jpg") center / cover no-repeat;
+    transform: translateY(var(--skills-shift, 0px));
+    pointer-events: none;
+}
+
+.skills-section > .content-wrap {
+    position: relative;
+    z-index: 1;
+}
+
+.skills-section h2 {
+    color: var(--paper);
+}
+
+.skills-section .section-eyebrow {
+    color: var(--accent);
+}
+
+.skills-section .skills-grid p {
+    background: rgba(255, 255, 255, 0.94);
+}
+
+/* Smaller screens */
+@media (max-width: 680px) {
+    .site-nav-links {
+        gap: 0.1rem 0.25rem;
+        padding: 0.35rem 0.5rem;
+    }
+
+    .site-nav a {
+        padding: 0.45rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .resume-section,
+    .site-footer,
+    .site-header {
+        scroll-margin-top: 7rem;
+    }
+
+    .content-wrap {
+        padding: 35px 25px;
+    }
+
+    .column-narrow,
+    .column-wide {
+        float: none;
+        width: 100%;
+        min-height: 0;
+        padding-right: 0;
+    }
+
+    img.profile-img.column-narrow {
+        display: block;
+        width: min(100%, 220px);
+        margin: 0 auto 1.5rem;
+    }
+
+    .entry-heading {
+        display: block;
+    }
+
+    .entry-heading .entry-meta {
+        margin-top: 0.45rem;
+        text-align: left;
+    }
+
+    .activity-grid,
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .skills-section::before {
+        transform: none;
+    }
+}
